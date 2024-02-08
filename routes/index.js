@@ -5,16 +5,19 @@ const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    date: new Date()
+    date: new Date(),
+    id: 0
   },
   {
     text: "Hello World!",
     user: "Charles",
-    date: new Date()
+    date: new Date(),
+    id: 1
   }
 ];
 
 const siteTitle = 'Mini Message Board';
+const arrayLength = messages.length;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -26,7 +29,12 @@ router.get('/new', function(req, res, next) {
 router.post('/new', function(req, res, next){
   const userName = req.body.name;
   const userMessage = req.body.message;
-  messages.push({ text: userMessage, user: userName, date: new Date() });
+  messages.push({
+    text: userMessage,
+    user: userName,
+    date: new Date(),
+    id: messages.length
+  });
   res.redirect('/')
 });
 

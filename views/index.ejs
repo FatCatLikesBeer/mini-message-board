@@ -8,17 +8,18 @@
     <h1><%= title %> &#x1F60D;</h1>
     <a class="links" href="/">Home</a>
     <a class="links" href="/new">New Message</a>
-    <p>Welcome to <%= title %></p>
-    <% const thingy = "doesthiswork"; %>
+    <br><br>
+    <p>Welcome to the <%= title %></p>
+    <% const thingy = "Read some messages or leave some new ones :)"; %>
     <p><%= thingy %></p>
-    <ul>
+    <ul id="list">
       <% messages.forEach(function(message) { %>
       <li><%= message.user %></li>
       <li><%= message.text %></li>
-      <li><%= message.date %></li>
-      <br />
+      <% let formattedDate = `${message.date.getFullYear()}-${(message.date.getMonth() + 1).toString().padStart(2, '0')}-${message.date.getDate().toString().padStart(2, '0')}` %>
+      <li><%= formattedDate %></li>
+      <br>
       <% }); %>
     </ul>
   </body>
 </html>
-<% console.log(thingy); %>
