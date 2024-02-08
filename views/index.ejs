@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %> &#x1F60D;</h1>
+    <a href="/">Home</a>
+    <a href="/new">New Message</a>
+    <p>Welcome to <%= title %></p>
+    <% const thingy = "doesthiswork"; %>
+    <p><%= thingy %></p>
+    <ul>
+      <% messages.forEach(function(message) { %>
+      <li><%= message.user %></li>
+      <li><%= message.text %></li>
+      <li><%= message.date %></li>
+      <br />
+      <% }); %>
+    </ul>
+  </body>
+</html>
+<% console.log(thingy); %>
