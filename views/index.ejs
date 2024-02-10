@@ -17,7 +17,7 @@
       <li><%= message.user %></li>
       <li><%= message.text %></li>
       <% let realDate = new Date(message.date); %>
-      <% let formattedDate = `${realDate.getFullYear()}-${(realDate.getMonth() + 1).toString().padStart(2, '0')}-${realDate.getDate().toString().padStart(2, '0')}` %>
+      <% let formattedDate = `${realDate.getFullYear()}-${(realDate.getMonth() + 1).toString().padStart(2, '0')}-${realDate.getDate().toString().padStart(2, '0')} ${realDate.getHours() === 0 ? "12" : realDate.getHours() > 12 ? realDate.getHours() - 12 : realDate.getHours() }:${realDate.getMinutes()} ${realDate.getHours() > 11 ? "PM" : "AM"}` %>
       <li><%= formattedDate %></li>
       <br>
       <% }); %>
