@@ -2,23 +2,10 @@ var express = require('express');
 var router = express.Router();
 const fs = require('fs');
 
-// const messages = [
-//   {
-//     text: "Hi there!",
-//     user: "Amando",
-//     date: new Date(),
-//     id: 0
-//   },
-//   {
-//     text: "Hello World!",
-//     user: "Charles",
-//     date: new Date(),
-//     id: 1
-//   }
-// ];
-
 const filePath = "messages.json";
-const messages = [];
+let messages = [];
+
+const siteTitle = 'Mini Message Board';
 
 fs.readFile(filePath, 'utf8', (err, data) => {
   console.log("Messages are empty");
@@ -26,12 +13,9 @@ fs.readFile(filePath, 'utf8', (err, data) => {
     console.error('Error reading file:', err);
     return;
   }
-  messages.push(...JSON.parse(data));
+  messages = JSON.parse(data);
   console.log("Messages have been loaded");
-})
-
-const siteTitle = 'Mini Message Board';
-const arrayLength = messages.length;
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
